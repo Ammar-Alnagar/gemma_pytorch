@@ -25,6 +25,7 @@ from gemma import config as gemma_config
 from gemma import tokenizer
 
 
+
 class Sampler(nn.Module):
 
     def __init__(self, vocab_size: int, config: gemma_config.GemmaConfig):
@@ -109,6 +110,7 @@ def apply_rotary_emb(x: torch.Tensor, freqs_cis: torch.Tensor) -> torch.Tensor:
     x_out = x_out.reshape(x_out.shape[0], x_out.shape[1], x_out.shape[2],
                           -1).transpose(1, 2)
     return x_out
+
 
 
 class Linear(nn.Module):
